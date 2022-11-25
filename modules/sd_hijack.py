@@ -376,7 +376,7 @@ class FrozenCLIPEmbedderWithCustomWords(torch.nn.Module):
 
     def process_tokens(self, remade_batch_tokens, batch_multipliers):
         if not opts.use_old_emphasis_implementation:
-            remade_batch_tokens = [[self.id_sot] + x[:76] + [self.id_fill] for x in remade_batch_tokens]
+            remade_batch_tokens = [[self.id_sot] + x[:75] + [self.id_fill] for x in remade_batch_tokens]
             batch_multipliers = [[1.0] + x[:75] + [1.0] for x in batch_multipliers]
 
         if hasattr(self.wrapped, "transformer"):
