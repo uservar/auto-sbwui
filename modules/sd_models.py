@@ -266,7 +266,7 @@ def load_model(checkpoint_info=None):
     
     # check if the model uses v-prediction (the 768x768 model and x4 upscaler do)
     # see https://arxiv.org/abs/2202.00512
-    shared.opts.v_sampling = sd_config.get("model.params.parameterization") == "v"
+    shared.v_prediction = sd_config.model.params.get("parameterization") == "v"
 
     if should_hijack_inpainting(checkpoint_info):
         # Hardcoded config for now...
